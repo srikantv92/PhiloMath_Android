@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:background="@drawable/back"
+    android:layout_height="fill_parent">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:layout_width="match_parent"
+    android:layout_height="fill_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
+    android:isScrollContainer="true"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:showIn="@layout/activity_homepage" tools:context="com.example.srikant.philomath.Homepage">
+
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:text="Courses You Teach"
+        android:textSize="25dp"
+        android:textColor="#006400"
+        android:visibility="gone"
+        android:id="@+id/coursesTaught"
+
+        />
+
+    <ListView
+        android:layout_width="match_parent"
+        android:visibility="gone"
+        android:layout_height="fill_parent"
+        android:clickable="false"
+        android:smoothScrollbar="true"
+
+        android:id="@+id/listCoursesTaught" />
+
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:text="Courses Enrolled"
+        android:textSize="25dp"
+        android:textColor="#006400"
+        android:visibility="gone"
+        android:id="@+id/coursesHeading"
+
+        />
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:text="You are currently not enrolled in Any Courses"
+        android:textSize="15dp"
+        android:textColor="#FF0000"
+        android:id="@+id/notEnrolled"
+        android:visibility="gone"
+
+
+        />
+    <ListView
+        android:layout_width="match_parent"
+        android:visibility="gone"
+        android:layout_height="fill_parent"
+        android:clickable="false"
+        android:smoothScrollbar="true"
+
+        android:id="@+id/coursesEnrolled" />
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Search Courses"
+        android:textColor="#006400"
+        android:textSize="25dp"
+        android:id="@+id/searchHeading"
+        android:visibility="gone"
+        />
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:hint="Enter Course Name"
+        android:id="@+id/searchBar"
+         />
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:gravity="center"
+        android:id="@+id/orBar"
+        android:textColor="#006400"
+        android:text="---------------OR---------------"
+
+        />
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Catogory"
+        android:visibility="gone"
+        android:id="@+id/searchbyCategory"
+        />
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:visibility="gone"
+        android:id="@+id/orBar2"
+        android:textColor="#006400"
+        android:text="---------------OR---------------"
+
+        />
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Instructor's Name"
+        android:visibility="gone"
+        android:id="@+id/searchByInstructor"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Search"
+        android:visibility="gone"
+        android:background="#ff99cc00"
+        android:id="@+id/searchButton"
+        />
+
+    <ListView
+        android:layout_width="match_parent"
+        android:visibility="gone"
+        android:layout_height="fill_parent"
+
+        android:smoothScrollbar="true"
+
+        android:id="@+id/searchResults" />
+
+
+</LinearLayout>
+</ScrollView>
