@@ -5,6 +5,7 @@
     <string name="title_activity_register">Register</string>
     <string name="seqQues">Security Questions</string>
     <string-array name="tutor_categories">
+        <item>Select Category</item>
         <item>Science</item>
 
         <item>Music</item>
@@ -28,8 +29,13 @@
 
 
     <string name="WebServiceIP">http://192.168.1.250</string>
-    <string name="title_activity_forgot_password">ForgotPassword</string>
-    <string name="title_activity_security_question">SecurityQuestion</string>
-    <string name="title_activity_reset_password">ResetPassword</string>
+    <string name="title_activity_forgot_password">Forgot Password</string>
+    <string name="title_activity_security_question">Security Question</string>
+    <string name="title_activity_reset_password">Reset Password</string>
     <string name="title_activity_homepage">Homepage</string>
+    <string name="title_activity_my_courses">My Courses</string>
+    <string name="title_activity_edit_profile">Edit Profile</string>
+    <string name="title_activity_tutor__profile">Tutor Profile</string>
+    <string name="title_activity_rate_professor">Rate Professor</string>
+    <string name="title_activity_submit_rating">SubmitRating</string>
 </resources>

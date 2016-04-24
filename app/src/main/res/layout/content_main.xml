@@ -53,10 +53,13 @@
         android:id="@+id/loginButton"
         android:layout_gravity="center_horizontal" />
 
+
+
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="15dp"
         android:clickable="true"
         android:text="Register Now!"
         android:id="@+id/registerNow"
@@ -69,4 +72,5 @@
         android:text="Forgot Password!"
         android:id="@+id/forgotPasswordButton"
         />
+
 </LinearLayout>

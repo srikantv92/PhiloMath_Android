@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -37,6 +38,10 @@ public class ResetPassword extends AppCompatActivity {
         submitPwd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                InputMethodManager imm = (InputMethodManager)getSystemService(INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
+
                 String pass=pwd.getText().toString();
                 String repass = repwd.getText().toString();
                 if(pass.equals(repass)){
@@ -77,7 +82,13 @@ public class ResetPassword extends AppCompatActivity {
                                 //successful
                                 status="Password reset Successful";
                                 Toast.makeText(ResetPassword.this, status, Toast.LENGTH_LONG).show();
-                                Log.d("status",status);
+
+
+
+                                Log.d("status", status);
+
+                                Intent backToLogin = new Intent(ResetPassword.this,MainActivity.class);
+                                startActivity(backToLogin);
 
 
                             }
@@ -85,7 +96,10 @@ public class ResetPassword extends AppCompatActivity {
                                 //failed
                                 status="Password reset Failed";
                                 Toast.makeText(ResetPassword.this, status, Toast.LENGTH_LONG).show();
-                                Log.d("status",status);
+                                Log.d("status", status);
+
+                                Intent backToLogin = new Intent(ResetPassword.this,MainActivity.class);
+                                startActivity(backToLogin);
 
                             }
                         } else {

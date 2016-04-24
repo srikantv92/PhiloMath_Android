@@ -8,6 +8,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -26,6 +27,10 @@ public class SecurityQuestion extends AppCompatActivity {
         seqSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                InputMethodManager imm = (InputMethodManager)getSystemService(INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
+
                 String ans =seqAns.getText().toString();
                 if(ans.equals(getIntent().getExtras().getString("ans"))){
                     Toast.makeText(SecurityQuestion.this,"Success!! Please reset your password",Toast.LENGTH_LONG).show();
