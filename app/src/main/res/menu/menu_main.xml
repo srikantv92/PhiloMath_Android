@@ -8,6 +8,8 @@
         android:orderInCategory="100" app:showAsAction="never" />
     <item android:id="@+id/rateProfessor" android:title="Rate Professor"
         android:orderInCategory="100" app:showAsAction="never" />
+    <item android:id="@+id/advt" android:title="Advertisement"
+        android:orderInCategory="100" app:showAsAction="never" />
     <item android:id="@+id/logout" android:title="Logout!"
         android:orderInCategory="100" app:showAsAction="never" />
 

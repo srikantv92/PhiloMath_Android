@@ -1,5 +1,8 @@
 package com.example.srikant.philomath;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -81,6 +84,10 @@ public class SubmitRating extends AppCompatActivity {
                     out.close();
                     if(conn.getResponseCode()==200){
                         Toast.makeText(SubmitRating.this,"Your Rating Submitted!",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(SubmitRating.this,"Overall Rating is "+rating,Toast.LENGTH_LONG).show();
+                        Intent home = new Intent(SubmitRating.this, Homepage.class);
+                        startActivity(home);
+
                     }
                     else{
                         Log.d("resp", String.valueOf(conn.getResponseCode()) );

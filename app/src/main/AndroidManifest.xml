@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.srikant.philomath" >
+    package="com.example.srikant.philomath">
 
     <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -11,11 +11,11 @@
         android:icon="@mipmap/appicon"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme">
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar" >
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -25,13 +25,12 @@
         <activity
             android:name=".Register"
             android:label="@string/title_activity_register"
-            android:theme="@style/AppTheme.NoActionBar" >
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".ForgotPassword"
             android:label="@string/title_activity_forgot_password"
             android:parentActivityName=".MainActivity"
-            android:theme="@style/AppTheme.NoActionBar" >
+            android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.srikant.philomath.MainActivity" />
@@ -40,7 +39,7 @@
             android:name=".SecurityQuestion"
             android:label="@string/title_activity_security_question"
             android:parentActivityName=".ForgotPassword"
-            android:theme="@style/AppTheme.NoActionBar" >
+            android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.srikant.philomath.ForgotPassword" />
@@ -48,13 +47,12 @@
         <activity
             android:name=".ResetPassword"
             android:label="@string/title_activity_reset_password"
-            android:theme="@style/AppTheme.NoActionBar" >
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Homepage"
             android:label="@string/title_activity_homepage"
             android:parentActivityName=".MainActivity"
-            android:theme="@style/CustomAction" >
+            android:theme="@style/CustomAction">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.srikant.philomath.MainActivity" />
@@ -63,7 +61,7 @@
             android:name=".MyCourses"
             android:label="@string/title_activity_my_courses"
             android:parentActivityName=".Homepage"
-            android:theme="@style/CustomAction" >
+            android:theme="@style/CustomAction">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.srikant.philomath.Homepage" />
@@ -72,7 +70,7 @@
             android:name=".EditProfile"
             android:label="@string/title_activity_edit_profile"
             android:parentActivityName=".Homepage"
-            android:theme="@style/CustomAction" >
+            android:theme="@style/CustomAction">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.srikant.philomath.Homepage" />
@@ -81,7 +79,7 @@
             android:name=".Tutor_Profile"
             android:label="@string/title_activity_tutor__profile"
             android:parentActivityName=".Homepage"
-            android:theme="@style/CustomAction" >
+            android:theme="@style/CustomAction">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.srikant.philomath.Homepage" />
@@ -90,7 +88,7 @@
             android:name=".RateProfessor"
             android:label="@string/title_activity_rate_professor"
             android:parentActivityName=".Homepage"
-            android:theme="@style/CustomAction" >
+            android:theme="@style/CustomAction">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.srikant.philomath.Homepage" />
@@ -99,10 +97,28 @@
             android:name=".SubmitRating"
             android:label="@string/title_activity_submit_rating"
             android:parentActivityName=".RateProfessor"
-            android:theme="@style/CustomAction" >
+            android:theme="@style/CustomAction">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.srikant.philomath.RateProfessor" />
+        </activity>
+        <activity
+            android:name=".Advertise"
+            android:label="@string/title_activity_advertise"
+            android:parentActivityName=".Homepage"
+            android:theme="@style/CustomAction">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.srikant.philomath.Homepage" />
+        </activity>
+        <activity
+            android:name=".Payment"
+            android:label="@string/title_activity_payment"
+            android:parentActivityName=".Advertise"
+            android:theme="@style/CustomAction">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.srikant.philomath.Advertise" />
         </activity>
     </application>
 

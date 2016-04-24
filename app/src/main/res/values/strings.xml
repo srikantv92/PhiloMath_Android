@@ -38,4 +38,6 @@
     <string name="title_activity_tutor__profile">Tutor Profile</string>
     <string name="title_activity_rate_professor">Rate Professor</string>
     <string name="title_activity_submit_rating">SubmitRating</string>
+    <string name="title_activity_advertise">Advertise</string>
+    <string name="title_activity_payment">Payment</string>
 </resources>

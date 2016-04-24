@@ -310,6 +310,10 @@ public class Homepage extends AppCompatActivity {
             startActivity(editProfile);
 
         }
+        if(id==R.id.advt){
+            Intent adv = new Intent(Homepage.this,Advertise.class);
+            startActivity(adv);
+        }
         return true;
     }
 
