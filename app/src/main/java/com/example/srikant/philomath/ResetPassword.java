@@ -28,106 +28,94 @@ import java.net.URL;
 
 public class ResetPassword extends AppCompatActivity {
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_reset_password);
-        final EditText pwd = (EditText) findViewById(R.id.pwd);
-        final EditText repwd = (EditText) findViewById(R.id.repwd);
-        Button submitPwd = (Button) findViewById(R.id.submitPassword);
-        submitPwd.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_reset_password);
+		final EditText pwd = (EditText) findViewById(R.id.pwd);
+		final EditText repwd = (EditText) findViewById(R.id.repwd);
+		Button submitPwd = (Button) findViewById(R.id.submitPassword);
+		submitPwd.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
 
-                InputMethodManager imm = (InputMethodManager)getSystemService(INPUT_METHOD_SERVICE);
-                imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
+				InputMethodManager imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+				imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
 
-                String pass=pwd.getText().toString();
-                String repass = repwd.getText().toString();
-                if(pass.equals(repass)){
-                    Log.d("password","Passwords match");
-                    String emailID = getIntent().getExtras().getString("email");
-                    String IP = getResources().getString(R.string.IpAddress)+"/webapi/resetpassword";
-                    URL url = null;
-                    try {
+				String pass = pwd.getText().toString();
+				String repass = repwd.getText().toString();
+				if (pass.equals(repass)) {
+					Log.d("password", "Passwords match");
+					String emailID = getIntent().getExtras().getString("email");
+					String IP = getResources().getString(R.string.IpAddress) + "/webapi/resetpassword";
+					URL url = null;
+					try {
 
-                        url = new URL(IP);
-                        HttpURLConnection conn = null;
-                        conn = (HttpURLConnection) url.openConnection();
+						url = new URL(IP);
+						HttpURLConnection conn = null;
+						conn = (HttpURLConnection) url.openConnection();
 
-                        conn.setRequestMethod("POST");
-                        conn.setDoOutput(true);
-                        conn.setDoInput(true);
-                        conn.setUseCaches(false);
-                        conn.setAllowUserInteraction(false);
-                        conn.setRequestProperty("Content-Type",
-                                "application/json");
+						conn.setRequestMethod("POST");
+						conn.setDoOutput(true);
+						conn.setDoInput(true);
+						conn.setUseCaches(false);
+						conn.setAllowUserInteraction(false);
+						conn.setRequestProperty("Content-Type", "application/json");
 
-                        OutputStream out = conn.getOutputStream();
-                        Writer writer = new OutputStreamWriter(out, "UTF-8");
-                        JSONObject reset =  new JSONObject();
-                        reset.put("email",getIntent().getExtras().getString("email"));
-                        reset.put("password",pass);
+						OutputStream out = conn.getOutputStream();
+						Writer writer = new OutputStreamWriter(out, "UTF-8");
+						JSONObject reset = new JSONObject();
+						reset.put("email", getIntent().getExtras().getString("email"));
+						reset.put("password", pass);
 
+						writer.write(reset.toString());
+						writer.close();
+						out.close();
+						BufferedReader rd = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+						String response = rd.readLine();
+						String status;
+						if (conn.getResponseCode() == 200) {
+							if (response.contains("success")) {
+								// successful
+								status = "Password reset Successful";
+								Toast.makeText(ResetPassword.this, status, Toast.LENGTH_LONG).show();
 
-                        writer.write(reset.toString());
-                        writer.close();
-                        out.close();
-                        BufferedReader rd = new BufferedReader(
-                                new InputStreamReader(conn.getInputStream()));
-                        String response= rd.readLine();
-                        String status;
-                        if (conn.getResponseCode() == 200) {
-                            if (response.contains("success")) {
-                                //successful
-                                status="Password reset Successful";
-                                Toast.makeText(ResetPassword.this, status, Toast.LENGTH_LONG).show();
+								Log.d("status", status);
 
+								Intent backToLogin = new Intent(ResetPassword.this, MainActivity.class);
+								startActivity(backToLogin);
 
+							} else {
+								// failed
+								status = "Password reset Failed";
+								Toast.makeText(ResetPassword.this, status, Toast.LENGTH_LONG).show();
+								Log.d("status", status);
 
-                                Log.d("status", status);
+								Intent backToLogin = new Intent(ResetPassword.this, MainActivity.class);
+								startActivity(backToLogin);
 
-                                Intent backToLogin = new Intent(ResetPassword.this,MainActivity.class);
-                                startActivity(backToLogin);
+							}
+						} else {
+							// unsuccessful connection
+							status = "Problem in connecting to server";
+							Toast.makeText(ResetPassword.this, status, Toast.LENGTH_LONG).show();
+							Log.d("status", status);
+						}
 
+					} catch (MalformedURLException e) {
+						e.printStackTrace();
+					} catch (IOException e) {
+						e.printStackTrace();
+					} catch (JSONException e) {
+						e.printStackTrace();
+					}
 
-                            }
-                            else{
-                                //failed
-                                status="Password reset Failed";
-                                Toast.makeText(ResetPassword.this, status, Toast.LENGTH_LONG).show();
-                                Log.d("status", status);
-
-                                Intent backToLogin = new Intent(ResetPassword.this,MainActivity.class);
-                                startActivity(backToLogin);
-
-                            }
-                        } else {
-                            //unsuccessful connection
-                            status="Problem in connecting to server";
-                            Toast.makeText(ResetPassword.this, status, Toast.LENGTH_LONG).show();
-                            Log.d("status",status);
-                        }
-
-                    }
-                    catch (MalformedURLException e) {
-                        e.printStackTrace();
-                    }
-                    catch (IOException e) {
-                        e.printStackTrace();
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-
-
-
-                }
-                else {
-                    Log.d("password","Passwords don't match!");
-                    Toast.makeText(ResetPassword.this,"Passwords don't match !!",Toast.LENGTH_LONG).show();
-                }
-            }
-        });
-    }
+				} else {
+					Log.d("password", "Passwords don't match!");
+					Toast.makeText(ResetPassword.this, "Passwords don't match !!", Toast.LENGTH_LONG).show();
+				}
+			}
+		});
+	}
 
 }
